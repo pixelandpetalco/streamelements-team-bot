@@ -54,14 +54,15 @@ export default async function handler(req, res) {
       return res
         .status(200)
         .send(
-          `Shoutout to my teammate @${cleanUser}! Check out their channel at https://twitch.tv/${cleanUser}`
+          `Shoutout to my Sprout Collective teammate @${cleanUser}! Check out their channel at https://twitch.tv/${cleanUser}`
         );
     }
 
     // Return empty response so StreamElements stays silent for non-teammates
     return res.status(200).send("");
-  } catch (error) {
-    // Fail silently on error to prevent chat spam
-    return res.status(200).send("");
+} catch (error) {
+  return res.status(200).send(`DEBUG ERROR: ${error.message}`);
+}
+
   }
 }
