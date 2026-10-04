@@ -4,7 +4,6 @@ let lastFetchTime = 0;
 const CACHE_DURATION = 15 * 60 * 1000; // Cache team roster for 15 minutes
 
 export default async function handler(req, res) {
-  const { user, team } = req.query;
 
   // Clean the username input
   const cleanUser = user ? user.replace("@", "").trim().toLowerCase() : null;
